@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  medusa:
+    build: .
+    container_name: bearshop-medusa
+    ports:
+      - "9000:9000"
+    environment:
+      NODE_ENV: production
+      PORT: 9000
+
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+
+      JWT_SECRET: ${JWT_SECRET}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+
+    restart: unless-stopped
