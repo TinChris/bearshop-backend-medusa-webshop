@@ -26,5 +26,6 @@ RUN npm ci --omit=dev
 COPY --from=build /app /app
 
 EXPOSE 9000
-CMD sh -c "npx medusa db:migrate && npx medusa seed && npm run start"
+CMD ["npm", "run", "start"]
+
 
